@@ -1,0 +1,33 @@
+# Backend .gitignore
+
+# Maven
+target/
+*.jar
+*.war
+*.rar
+.classpath
+.project
+.settings/
+.vscode/
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+.DS_Store
+
+# Build
+build/
+dist/
+
+# Logs
+*.log
+logs/
+
+# Package files
+*.pom.bak
+
+# Environment variables
+.env
+.env.local
