@@ -28,6 +28,7 @@ services:
           name: student-manager-backend
           property: host
         suffix: /api/students
-    routingRules:
-      - route: /*
-        rewritePath: /index.html
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
