@@ -23,7 +23,13 @@ const App = () => {
 
     axios.get(API_BASE_URL)
       .then(response => {
-        setStudents(response.data);
+        // Ensure we only set students if the data is actually an array
+        if (Array.isArray(response.data)) {
+          setStudents(response.data);
+        } else {
+          setStudents([]);
+          console.error('Expected an array but received:', response.data);
+        }
         setLoading(false);
       })
       .catch(err => {
