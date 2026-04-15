@@ -1,13 +1,12 @@
 services:
-  # Backend Spring Boot Service
+  # Backend Spring Boot Service (using Docker)
   - type: web
     name: student-manager-backend
-    env: java
+    env: docker
     region: ohio
     plan: free
     rootDir: backend
-    buildCommand: mvn clean package -DskipTests
-    startCommand: java -jar target/student-record-manager-1.0.0.jar
+    # buildCommand and startCommand are handled by Dockerfile
     envVars:
       - key: PORT
         value: 8080
@@ -16,7 +15,6 @@ services:
   - type: web
     name: student-manager-frontend
     env: static
-    region: ohio
     plan: free
     rootDir: frontend
     buildCommand: npm install && npm run build
