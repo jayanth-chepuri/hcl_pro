@@ -3,7 +3,7 @@ import axios from 'axios';
 import StudentForm from './StudentForm';
 import StudentTable from './StudentTable';
 
-const API_BASE_URL = 'http://localhost:8080/api/students';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api/students';
 
 const App = () => {
   const [students, setStudents] = useState([]);
