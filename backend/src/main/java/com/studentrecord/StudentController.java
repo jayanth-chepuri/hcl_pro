@@ -9,8 +9,18 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@RequestMapping("/")
+@CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.OPTIONS})
+class HealthCheckController {
+    @GetMapping
+    public String healthCheck() {
+        return "Backend is running!";
+    }
+}
+
+@RestController
 @RequestMapping("/api/students")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.OPTIONS})
 public class StudentController {
     
     @Autowired
