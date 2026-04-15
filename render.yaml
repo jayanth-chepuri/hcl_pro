@@ -12,15 +12,15 @@ services:
       - key: PORT
         value: 8080
 
-  # Frontend React Service
-  - type: static
+  # Frontend React Service (Static Site)
+  - type: web
     name: student-manager-frontend
     env: static
     region: ohio
     plan: free
     rootDir: frontend
     buildCommand: npm install && npm run build
-    publishDir: dist
+    staticPublishPath: dist
     envVars:
       - key: VITE_API_URL
         fromService:
