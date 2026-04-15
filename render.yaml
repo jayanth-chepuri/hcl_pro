@@ -2,11 +2,10 @@ services:
   # Backend Spring Boot Service (using Docker)
   - type: web
     name: student-manager-backend
-    env: docker
+    runtime: docker
     region: ohio
     plan: free
     rootDir: backend
-    # buildCommand and startCommand are handled by Dockerfile
     envVars:
       - key: PORT
         value: 8080
@@ -14,8 +13,7 @@ services:
   # Frontend React Service (Static Site)
   - type: web
     name: student-manager-frontend
-    env: static
-    plan: free
+    runtime: static
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: dist
